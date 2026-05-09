@@ -2,9 +2,17 @@ import javax.swing.*; // used for GUI parts
 import java.awt.*; // used for layout
 
 /**
- * Lead Author(s):Allan Schougaard
+ * Lead Author(s):Mohammad Mansoor Mirzad
  * 
- * @author Mohammad Mansoor Mirzad
+ * @author Allan Schougaard 
+ * 
+ * Other contributors:None                                    
+ * 
+ * References:Oracle Java Documentation (Swing GUI):
+ *         https://docs.oracle.com/javase/tutorial/uiswing/
+ * 
+ * Coding with John (YouTube):
+ *         https://www.youtube.com/watch?v=aqcJsKdjjvU
  * 
  * Version/date: 9 May 2026
  * 
