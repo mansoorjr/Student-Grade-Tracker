@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 /**
- *  * Lead Author(s): Allan Schougaard
+ * Lead Author(s): Allan Schougaard
  * 
  * @author Mohammad Mansoor Mirzad
  * 
@@ -12,37 +12,39 @@ import java.util.ArrayList;
 public class Course {
 
     private String courseName; // course name
-    private ArrayList<Grade> grades; // list of grades
+
+    // HAS-MANY: A Course has many Grade objects.
+    private ArrayList<Grade> grades;
 
     public Course(String courseName) {
         this.courseName = courseName; // set name
-        this.grades = new ArrayList<>(); // create list
+        this.grades = new ArrayList<>(); // create grade list
     }
 
     public String getCourseName() {
-        return courseName; // return name
+        return courseName; // return course name
     }
 
+    // add grade to list
     public void addGrade(Grade grade) {
-        // only add if grade is valid
-        if (grade.isValidGrade()) {
-            grades.add(grade);
-        }
+        grades.add(grade);
     }
 
+    // calculate average grade
     public double getAverage() {
 
+        // check if no grades
         if (grades.isEmpty()) {
-            return 0; // no grades
+            return 0;
         }
 
-        double total = 0;
+        double total = 0; // total grades
 
-        // add all grades
-        for (Grade g : grades) {
-            total += g.getValue();
+        // loop through grades
+        for (Grade grade : grades) {
+            total += grade.getValue();
         }
 
-        return total / grades.size(); // average
+        return total / grades.size(); // return average
     }
 }
