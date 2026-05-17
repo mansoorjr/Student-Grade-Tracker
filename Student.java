@@ -12,32 +12,36 @@ import java.util.ArrayList;
 public class Student {
 
     private String name; // student name
-    private ArrayList<Course> courses; // list of courses
+
+    // HAS-MANY: A Student has many Course objects.
+    private ArrayList<Course> courses;
 
     public Student(String name) {
         this.name = name; // set name
-        this.courses = new ArrayList<>(); // create empty list
+        this.courses = new ArrayList<>(); // create course list
     }
 
     public String getName() {
         return name; // return name
     }
 
+    // add course
     public void addCourse(Course course) {
-        courses.add(course); // add course to list
+        courses.add(course);
     }
 
-    public ArrayList<Course> getCourses() {
-        return courses; // return all courses
-    }
-
+    // find course by name
     public Course findCourse(String courseName) {
-        // loop through courses to find match
+
+        // loop through courses
         for (Course course : courses) {
+
+            // check if names match
             if (course.getCourseName().equalsIgnoreCase(courseName)) {
-                return course; // found it
+                return course;
             }
         }
+
         return null; // not found
     }
 }
