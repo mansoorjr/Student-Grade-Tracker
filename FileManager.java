@@ -13,22 +13,26 @@ import java.io.IOException; // used for file errors
  * 
  * Coding with John (YouTube):
  *         https://www.youtube.com/watch?v=aqcJsKdjjvU
- * 
+ *         
  * Version/date: 9 May 2026
  * 
  * Responsibilities of class:This class saves data to a text file.
  */
 public class FileManager {
 
-    // method to save text into file
+    // save text into file
     public void saveData(String text) {
-        try {
-            FileWriter writer = new FileWriter("grades.txt"); // create file writer
+
+        // FileWriter closes automatically
+        try (FileWriter writer = new FileWriter("grades.txt")) {
+
             writer.write(text); // write text
-            writer.close(); // close file
-            System.out.println("Data saved."); // show message
+
+            System.out.println("Data saved.");
+
         } catch (IOException e) {
-            System.out.println("Error saving file."); // show error
+
+            System.out.println("Error saving file.");
         }
     }
 }
