@@ -11,29 +11,43 @@ public class Main {
 
     public static void main(String[] args) {
 
-        GradeTracker tracker = new GradeTracker(); // create tracker
+        try {
 
-        Student student = new Student("Mohammad"); // create student
-        Course course = new Course("Java"); // create course
+            GradeTracker tracker = new GradeTracker();
 
-        // add grades
-        course.addGrade(new Grade(90));
-        course.addGrade(new Grade(85));
+            Student student = new Student("Mohammad");
 
-        student.addCourse(course); // add course to student
-        tracker.addStudent(student); // add student to tracker
+            Course course = new Course("Java");
 
-        // search student
-        Student found = tracker.findStudent("Mohammad");
+            // add valid grades
+            course.addGrade(new Grade(90));
+            course.addGrade(new Grade(85));
 
-        if (found != null) {
+            // HAS-A: Student has a Course
+            student.addCourse(course);
 
-            Course c = found.findCourse("Java");
+            // HAS-A: GradeTracker has a Student
+            tracker.addStudent(student);
 
-            if (c != null) {
-                // print result
-                System.out.println("Average: " + c.getAverage());
+            Student foundStudent =
+                    tracker.findStudent("Mohammad");
+
+            if (foundStudent != null) {
+
+                Course foundCourse =
+                        foundStudent.findCourse("Java");
+
+                if (foundCourse != null) {
+
+                    System.out.println(
+                            "Average Grade: "
+                                    + foundCourse.getAverage());
+                }
             }
+
+        } catch (InvalidGradeException e) {
+
+            System.out.println(e.getMessage());
         }
     }
 }
