@@ -11,22 +11,27 @@ import java.util.ArrayList;
  */
 public class GradeTracker {
 
-    private ArrayList<Student> students; // list of students
+    // HAS-MANY: GradeTracker has many Student objects.
+    private ArrayList<Student> students;
 
     public GradeTracker() {
-        this.students = new ArrayList<>(); // create list
+        students = new ArrayList<>(); // create student list
     }
 
+    // add student
     public void addStudent(Student student) {
-        students.add(student); // add student
+        students.add(student);
     }
 
+    // search student
     public Student findStudent(String name) {
 
         // loop through students
-        for (Student s : students) {
-            if (s.getName().equalsIgnoreCase(name)) {
-                return s; // found
+        for (Student student : students) {
+
+            // compare names
+            if (student.getName().equalsIgnoreCase(name)) {
+                return student;
             }
         }
 
