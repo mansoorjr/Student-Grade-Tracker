@@ -9,18 +9,21 @@
  */
 public class Grade {
 
-    private double value; // grade value
+    private double value; // stores grade value
 
-    public Grade(double value) {
-        this.value = value; // set value
+    // constructor checks if grade is valid
+    public Grade(double value) throws InvalidGradeException {
+
+        // throw exception if grade is invalid
+        if (value < 0 || value > 100) {
+            throw new InvalidGradeException(
+                    "Grade must be between 0 and 100.");
+        }
+
+        this.value = value; // save valid grade
     }
 
     public double getValue() {
-        return value; // return value
-    }
-
-    public boolean isValidGrade() {
-        // check if grade is between 0 and 100
-        return value >= 0 && value <= 100;
+        return value; // return grade value
     }
 }
