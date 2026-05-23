@@ -13,51 +13,142 @@ import java.awt.*; // used for layout
  * 
  * Coding with John (YouTube):
  *         https://www.youtube.com/watch?v=aqcJsKdjjvU
- * 
- * Version/date: 9 May 2026
+ *         
+ * Version/date: 5/22 2026
  * 
  * Responsibilities of class:This class creates the GUI window for the Student Grade Tracker App.
  */
 
-// IS-A: GradeTrackerGUI is a JFrame.
-public class GradeTrackerGUI extends JFrame {
+//IS-A: GradeTrackerGUI is a JFrame.
+public class GradeTrackerGUI extends JFrame {// IS-A: GradeTrackerGUI is a JFrame
 
-    public GradeTrackerGUI() {
-        setTitle("Student Grade Tracker App"); // window title
-        setSize(500, 350); // window size
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // close program
-        setLayout(new BorderLayout()); // main layout
+private JTextField studentField; // student input
 
-        JPanel inputPanel = new JPanel(new GridLayout(3, 2)); // input area
+private JTextField courseField; // course input
 
-        inputPanel.add(new JLabel("Student Name:")); // label
-        inputPanel.add(new JTextField()); // text box
+private JTextField gradeField; // grade input
 
-        inputPanel.add(new JLabel("Course Name:")); // label
-        inputPanel.add(new JTextField()); // text box
+private JTextArea outputArea; // output area
 
-        inputPanel.add(new JLabel("Grade:")); // label
-        inputPanel.add(new JTextField()); // text box
+// HAS-A: GUI has a GradeTracker object
+private GradeTracker tracker;
 
-        JPanel buttonPanel = new JPanel(); // button area
+ public GradeTrackerGUI() {
 
-        buttonPanel.add(new JButton("Add Student")); // button
-        buttonPanel.add(new JButton("Add Grade")); // button
-        buttonPanel.add(new JButton("Show Average")); // button
-        buttonPanel.add(new JButton("Search")); // button
-        buttonPanel.add(new JButton("Save")); // button
-        buttonPanel.add(new JButton("Load")); // button
+     tracker = new GradeTracker();
 
-        JTextArea outputArea = new JTextArea(); // output area
-        outputArea.setEditable(false); // user cannot type here
+     setTitle("Student Grade Tracker App");
 
-        add(inputPanel, BorderLayout.NORTH); // add input area
-        add(buttonPanel, BorderLayout.CENTER); // add buttons
-        add(new JScrollPane(outputArea), BorderLayout.SOUTH); // add output
-    }
+     setSize(500, 350);
 
-    public static void main(String[] args) {
-        GradeTrackerGUI gui = new GradeTrackerGUI(); // create GUI
-        gui.setVisible(true); // show GUI
-    }
+     setDefaultCloseOperation(
+             JFrame.EXIT_ON_CLOSE);
+
+     setLayout(new BorderLayout());
+
+     JPanel inputPanel =
+             new JPanel(new GridLayout(3, 2));
+
+     inputPanel.add(
+             new JLabel("Student Name:"));
+
+     studentField = new JTextField();
+
+     inputPanel.add(studentField);
+
+     inputPanel.add(
+             new JLabel("Course Name:"));
+
+     courseField = new JTextField();
+
+     inputPanel.add(courseField);
+
+     inputPanel.add(
+             new JLabel("Grade:"));
+
+     gradeField = new JTextField();
+
+     inputPanel.add(gradeField);
+
+     JPanel buttonPanel = new JPanel();
+
+     JButton addButton =
+             new JButton("Add Student Info");
+
+     buttonPanel.add(addButton);
+
+     outputArea = new JTextArea();
+
+     outputArea.setEditable(false);
+
+     add(inputPanel, BorderLayout.NORTH);
+
+     add(buttonPanel, BorderLayout.CENTER);
+
+     add(new JScrollPane(outputArea),
+             BorderLayout.SOUTH);
+
+     addButton.addActionListener(e -> {
+
+         try {
+
+             String studentName =
+                     studentField.getText();
+
+             String courseName =
+                     courseField.getText();
+
+             double gradeValue =
+                     Double.parseDouble(
+                             gradeField.getText());
+
+             Student student =
+                     new Student(studentName);
+
+             Course course =
+                     new Course(courseName);
+
+             course.addGrade(
+                     new Grade(gradeValue));
+
+             // HAS-A: Student has a Course
+             student.addCourse(course);
+
+             // HAS-A: GradeTracker has a Student
+             tracker.addStudent(student);
+
+             outputArea.append(
+                     "Added: "
+                             + studentName
+                             + " | "
+                             + courseName
+                             + " | "
+                             + gradeValue
+                             + "\n");
+
+         } catch (InvalidGradeException ex) {
+
+             outputArea.append(
+                     ex.getMessage() + "\n");
+
+         } catch (NumberFormatException ex) {
+
+             outputArea.append(
+                     "Please enter a valid number.\n");
+
+         } catch (Exception ex) {
+
+             outputArea.append(
+                     "Something went wrong.\n");
+         }
+     });
+ }
+
+ public static void main(String[] args) {
+
+     GradeTrackerGUI gui =
+             new GradeTrackerGUI();
+
+     gui.setVisible(true);
+ }
 }
