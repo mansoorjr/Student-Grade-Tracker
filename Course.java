@@ -1,50 +1,58 @@
 import java.util.ArrayList;
 
 /**
- * Lead Author(s): Allan Schougaard
+ *  * Lead Author(s): Allan Schougaard
  * 
  * @author Mohammad Mansoor Mirzad
  * 
- * Date:4/30 2026
+ * Date:5/22 2026
  * 
  * This class stores course and grades.
  */
 public class Course {
 
-    private String courseName; // course name
+	private String courseName; // stores course name
 
-    // HAS-MANY: A Course has many Grade objects.
-    private ArrayList<Grade> grades;
+	// HAS-MANY: A Course has many Grade objects
+	private ArrayList<Grade> grades;
 
-    public Course(String courseName) {
-        this.courseName = courseName; // set name
-        this.grades = new ArrayList<>(); // create grade list
-    }
+	// constructor
+	public Course(String courseName) {
 
-    public String getCourseName() {
-        return courseName; // return course name
-    }
+	    this.courseName = courseName; // set course name
 
-    // add grade to list
-    public void addGrade(Grade grade) {
-        grades.add(grade);
-    }
+	    grades = new ArrayList<>(); // create grade list
+	}
 
-    // calculate average grade
-    public double getAverage() {
+	// return course name
+	public String getCourseName() {
 
-        // check if no grades
-        if (grades.isEmpty()) {
-            return 0;
-        }
+	    return courseName;
+	}
 
-        double total = 0; // total grades
+	// add grade
+	public void addGrade(Grade grade) {
 
-        // loop through grades
-        for (Grade grade : grades) {
-            total += grade.getValue();
-        }
+	    grades.add(grade);
+	}
 
-        return total / grades.size(); // return average
-    }
+	// calculate average grade
+	public double getAverage() {
+
+	    // check if list is empty
+	    if (grades.isEmpty()) {
+
+	        return 0;
+	    }
+
+	    double total = 0; // total grades
+
+	    // loop through grades
+	    for (Grade grade : grades) {
+
+	        total += grade.getValue();
+	    }
+
+	    return total / grades.size(); // return average
+	}
 }
