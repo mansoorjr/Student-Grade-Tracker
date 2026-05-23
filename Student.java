@@ -5,43 +5,51 @@ import java.util.ArrayList;
  * 
  * @author Mohammad Mansoor Mirzad
  * 
- * Date:4/30 2026
+ * Date:5/22 2026
  * 
  * Responsibilities of class:This class stores student name and courses.
  */
 public class Student {
 
-    private String name; // student name
+	private String name; // stores student name
 
-    // HAS-MANY: A Student has many Course objects.
-    private ArrayList<Course> courses;
+	// HAS-MANY: A Student has many Course objects
+	private ArrayList<Course> courses;
 
-    public Student(String name) {
-        this.name = name; // set name
-        this.courses = new ArrayList<>(); // create course list
-    }
+	// constructor
+	public Student(String name) {
 
-    public String getName() {
-        return name; // return name
-    }
+	    this.name = name; // set student name
 
-    // add course
-    public void addCourse(Course course) {
-        courses.add(course);
-    }
+	    courses = new ArrayList<>(); // create course list
+	}
 
-    // find course by name
-    public Course findCourse(String courseName) {
+	// return student name
+	public String getName() {
 
-        // loop through courses
-        for (Course course : courses) {
+	    return name;
+	}
 
-            // check if names match
-            if (course.getCourseName().equalsIgnoreCase(courseName)) {
-                return course;
-            }
-        }
+	// add course to student
+	public void addCourse(Course course) {
 
-        return null; // not found
-    }
+	    courses.add(course);
+	}
+
+	// search for course
+	public Course findCourse(String courseName) {
+
+	    // loop through courses
+	    for (Course course : courses) {
+
+	        // compare course names
+	        if (course.getCourseName()
+	                .equalsIgnoreCase(courseName)) {
+
+	            return course; // return found course
+	        }
+	    }
+
+	    return null; // course not found
+	}
 }
