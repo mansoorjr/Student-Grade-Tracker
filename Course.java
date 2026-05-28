@@ -5,10 +5,11 @@ import java.util.ArrayList;
  * 
  * @author Mohammad Mansoor Mirzad
  * 
- * Date:5/22 2026
+ * Date:5/28 2026
  * 
  * This class stores course and grades.
  */
+//HAS-MANY: A Course has many Grade objects.
 public class Course {
 
 	private String courseName; // stores course name
