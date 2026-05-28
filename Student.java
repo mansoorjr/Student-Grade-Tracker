@@ -5,10 +5,11 @@ import java.util.ArrayList;
  * 
  * @author Mohammad Mansoor Mirzad
  * 
- * Date:5/22 2026
+ * Date:5/28 2026
  * 
  * Responsibilities of class:This class stores student name and courses.
  */
+//HAS-MANY: A Student has many Course objects.
 public class Student {
 
 	private String name; // stores student name
