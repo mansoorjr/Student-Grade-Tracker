@@ -5,10 +5,11 @@ import java.util.ArrayList;
  * 
  * @author Mohammad Mansoor Mirzad
  * 
- * Date:5/22 2026
+ * Date:5/28 2026
  * 
  * This class manages all students.
  */
+//HAS-MANY: GradeTracker has many Student objects.
 public class GradeTracker {
 
 	// HAS-MANY: GradeTracker has many Student objects
