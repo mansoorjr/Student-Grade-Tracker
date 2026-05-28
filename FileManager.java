@@ -14,7 +14,7 @@ import java.io.IOException; // used for file errors
  * Coding with John (YouTube):
  *         https://www.youtube.com/watch?v=aqcJsKdjjvU
  *         
- * Version/date: 5/22 2026
+ * Version/date: 5/28 2026
  * 
  * Responsibilities of class:This class saves data to a text file.
  */
