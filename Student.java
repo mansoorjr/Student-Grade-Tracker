@@ -5,52 +5,58 @@ import java.util.ArrayList;
  * 
  * @author Mohammad Mansoor Mirzad
  * 
- * Date:5/28 2026
+ * Date:5/31 2026
  * 
- * Responsibilities of class:This class stores student name and courses.
+ * Responsibilities of class:This class stores student information and manages courses for a student.
  */
-//HAS-MANY: A Student has many Course objects.
+
+// HAS-MANY: A Student has many Course objects.
 public class Student {
 
-	private String name; // stores student name
+    // stores student name
+    private String name;
 
-	// HAS-MANY: A Student has many Course objects
-	private ArrayList<Course> courses;
+    // HAS-MANY: A Student has many Course objects
+    private ArrayList<Course> courses;
 
-	// constructor
-	public Student(String name) {
+    // constructor
+    public Student(String name) {
 
-	    this.name = name; // set student name
+        // save student name
+        this.name = name;
 
-	    courses = new ArrayList<>(); // create course list
-	}
+        // create course list
+        courses = new ArrayList<>();
+    }
 
-	// return student name
-	public String getName() {
+    // return student name
+    public String getName() {
 
-	    return name;
-	}
+        return name;
+    }
 
-	// add course to student
-	public void addCourse(Course course) {
+    // add course to student
+    public void addCourse(Course course) {
 
-	    courses.add(course);
-	}
+        courses.add(course);
+    }
 
-	// search for course
-	public Course findCourse(String courseName) {
+    // search for course
+    public Course findCourse(String courseName) {
 
-	    // loop through courses
-	    for (Course course : courses) {
+        // loop through courses
+        for (Course course : courses) {
 
-	        // compare course names
-	        if (course.getCourseName()
-	                .equalsIgnoreCase(courseName)) {
+            // compare course names
+            if (course.getCourseName()
+                    .equalsIgnoreCase(courseName)) {
 
-	            return course; // return found course
-	        }
-	    }
+                // return found course
+                return course;
+            }
+        }
 
-	    return null; // course not found
-	}
+        // course not found
+        return null;
+    }
 }
