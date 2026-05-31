@@ -1,59 +1,66 @@
 import java.util.ArrayList;
 
 /**
- *  * Lead Author(s): Allan Schougaard
+ * Lead Author(s):Mohammad Mansoor Mirzad
  * 
- * @author Mohammad Mansoor Mirzad
+ * Professor:Allan Schougaard
  * 
- * Date:5/28 2026
  * 
- * This class stores course and grades.
+ * Version/date 5/31/2026
+ * 
+ * Responsibilities of class:This class stores course information and manages grades for a course.
  */
-//HAS-MANY: A Course has many Grade objects.
+
+// HAS-MANY: A Course has many Grade objects.
 public class Course {
 
-	private String courseName; // stores course name
+    // stores course name
+    private String courseName;
 
-	// HAS-MANY: A Course has many Grade objects
-	private ArrayList<Grade> grades;
+    // HAS-MANY: A Course has many Grade objects
+    private ArrayList<Grade> grades;
 
-	// constructor
-	public Course(String courseName) {
+    // constructor
+    public Course(String courseName) {
 
-	    this.courseName = courseName; // set course name
+        // save course name
+        this.courseName = courseName;
 
-	    grades = new ArrayList<>(); // create grade list
-	}
+        // create grade list
+        grades = new ArrayList<>();
+    }
 
-	// return course name
-	public String getCourseName() {
+    // return course name
+    public String getCourseName() {
 
-	    return courseName;
-	}
+        return courseName;
+    }
 
-	// add grade
-	public void addGrade(Grade grade) {
+    // add grade to course
+    public void addGrade(Grade grade) {
 
-	    grades.add(grade);
-	}
+        grades.add(grade);
+    }
 
-	// calculate average grade
-	public double getAverage() {
+    // calculate average grade
+    public double getAverage() {
 
-	    // check if list is empty
-	    if (grades.isEmpty()) {
+        // check if no grades exist
+        if (grades.isEmpty()) {
 
-	        return 0;
-	    }
+            return 0;
+        }
 
-	    double total = 0; // total grades
+        // store total grades
+        double total = 0;
 
-	    // loop through grades
-	    for (Grade grade : grades) {
+        // loop through grades
+        for (Grade grade : grades) {
 
-	        total += grade.getValue();
-	    }
+            total += grade.getValue();
+        }
 
-	    return total / grades.size(); // return average
-	}
+        // return average
+        return total / grades.size();
+    }
 }
