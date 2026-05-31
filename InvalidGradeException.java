@@ -1,18 +1,22 @@
 /**
- * Lead Author(s): Allan Schougaard
+ * Lead Author(s):Mohammad Mansoor Mirzad
  * 
- * @author Mohammad Mansoor Mirzad
+ * Professor:Allan Schougaard
  * 
- * Date:5/28 2026
+ * Version/date:5/31/2026
  * 
- * Responsibilities of class:This class handles invalid grade exceptions.
+ * Responsibilities of class:
+ *         This class creates a custom
+ *         exception for invalid grades.
  */
+
 // IS-A: InvalidGradeException is an Exception.
 public class InvalidGradeException extends Exception {
 
+    // constructor
     public InvalidGradeException(String message) {
 
-        // pass message to parent Exception class
+        // send message to Exception class
         super(message);
     }
 }
