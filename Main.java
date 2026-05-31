@@ -1,9 +1,9 @@
 /**
- * Lead Author(s): Allan Schougaard
+ * Lead Author(s):Mohammad Mansoor Mirzad
  * 
- * @author Mohammad Mansoor Mirzad
+ * Professor:Allan Schougaard
  * 
- * Date:5/28 2026
+ * Date:5/31 2026
  * 
  * This class is just for testing.
  */
