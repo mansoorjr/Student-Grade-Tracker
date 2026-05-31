@@ -1,35 +1,38 @@
 /**
- * Lead Author(s): Allan Schougaard
+ * Lead Author(s):Mohammad Mansoor Mirzad
  * 
- * @author Mohammad Mansoor Mirzad
+ * Professor:Allan Schougaard
  * 
- * Date:5/28 2026
+ * Date:5/31 2026
  * 
- * This class stores one grade.
+ * Responsibilities of class:This class stores one grade value.It makes sure grades stay between 0 and 100.
  */
-// Grade class
+
+// HAS-A: A Grade has a grade value.
 public class Grade {
 
-	private double value; // stores grade value
+    // stores grade value
+    private double value;
 
-	// constructor checks grade
-	public Grade(double value)
-	        throws InvalidGradeException {
+    // constructor checks grade
+    public Grade(double value)
+            throws InvalidGradeException {
 
-	    // check if invalid
-	    if (value < 0 || value > 100) {
+        // check if grade is invalid
+        if (value < 0 || value > 100) {
 
-	        // throw custom exception
-	        throw new InvalidGradeException(
-	                "Grade must be between 0 and 100.");
-	    }
+            // throw custom exception
+            throw new InvalidGradeException(
+                    "Grade must be between 0 and 100.");
+        }
 
-	    this.value = value; // save valid grade
-	}
+        // save valid grade
+        this.value = value;
+    }
 
-	// return grade value
-	public double getValue() {
+    // return grade value
+    public double getValue() {
 
-	    return value;
-	}
+        return value;
+    }
 }
