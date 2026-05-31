@@ -5,42 +5,47 @@ import java.util.ArrayList;
  * 
  * @author Mohammad Mansoor Mirzad
  * 
- * Date:5/28 2026
- * 
- * This class manages all students.
+ * Date:5/31 2026
+ *
+ * Responsibilities of class:This class stores and manages all Student objects.
  */
-//HAS-MANY: GradeTracker has many Student objects.
+
+// HAS-MANY: GradeTracker has many Student objects.
 public class GradeTracker {
 
-	// HAS-MANY: GradeTracker has many Student objects
-	private ArrayList<Student> students;
+    // HAS-MANY: GradeTracker has many Student objects
+    private ArrayList<Student> students;
 
-	// constructor
-	public GradeTracker() {
+    // constructor
+    public GradeTracker() {
 
-	    students = new ArrayList<>(); // create student list
-	}
+        // create student list
+        students = new ArrayList<>();
+    }
 
-	// add student
-	public void addStudent(Student student) {
+    // add student to tracker
+    public void addStudent(Student student) {
 
-	    students.add(student);
-	}
+        students.add(student);
+    }
 
-	// search student
-	public Student findStudent(String name) {
+    // search for student
+    public Student findStudent(String name) {
 
-	    // loop through students
-	    for (Student student : students) {
+        // loop through students
+        for (Student student : students) {
 
-	        // compare student names
-	        if (student.getName()
-	                .equalsIgnoreCase(name)) {
+            // compare student names
+            if (student.getName()
+                    .equalsIgnoreCase(name)) {
 
-	            return student; // found student
-	        }
-	    }
+                // return found student
+                return student;
+            }
+        }
 
-	    return null; // student not found
-	}
+        // student not found
+        return null;
+    }
 }
+
